@@ -1,4 +1,4 @@
-const API = "https://mongo-test-backend-mlxj-my62aonbi-sanjay-d-ks-projects.vercel.app/";
+const API = "https://mongo-test-backend-mlxj-my62aonbi-sanjay-d-ks-projects.vercel.app";
 let editId = null;
 
 async function fetchNotes() {
