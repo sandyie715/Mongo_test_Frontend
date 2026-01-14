@@ -1,4 +1,8 @@
 const API = "https://mongo-test-backend-mlxj-my62aonbi-sanjay-d-ks-projects.vercel.app";
+
+const title = document.getElementById("title");
+const content = document.getElementById("content");
+
 let editId = null;
 
 async function fetchNotes() {
@@ -8,7 +12,6 @@ async function fetchNotes() {
         return;
     }
     const notes = await res.json();
-
 
     const list = document.getElementById("noteList");
     list.innerHTML = "";
@@ -34,12 +37,12 @@ async function fetchNotes() {
 }
 
 async function addNote() {
-    const payload ={
-        title : title.value,
+    const payload = {
+        title: title.value,
         content: content.value
     };
 
-    if(editId) {
+    if (editId) {
         await fetch(`${API}/notes/${editId}`, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
@@ -48,13 +51,14 @@ async function addNote() {
         editId = null;
     } else {
         await fetch(`${API}/notes`, {
-            method : "POST",
+            method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(payload)
         });
     }
+
     title.value = "";
-    content.value="";
+    content.value = "";
     fetchNotes();
 }
 
@@ -65,9 +69,8 @@ function editNote(id, titleVal, contentVal) {
 }
 
 async function deleteNote(id) {
-    await fetch(`${API}/notes/${id}`, {method: "DELETE"});
-    fetchNotes()
+    await fetch(`${API}/notes/${id}`, { method: "DELETE" });
+    fetchNotes();
 }
 
 fetchNotes();
-
