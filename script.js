@@ -1,6 +1,6 @@
 console.log("SCRIPT LOADED ✅");
 
-const API = "https://mongo-test-backend-mlxj-my62aonbi-sanjay-d-ks-projects.vercel.app";
+const API = "mongo-test-backend-mlxj.vercel.app";
 
 document.addEventListener("DOMContentLoaded", () => {
     const title = document.getElementById("title");
